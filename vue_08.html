@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>클래스와 스타일 바인딩</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .red {
+            color: red;
+        }
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div :class ="{ red : isRed, bold : isBold }">Hello</div>
+        <button @click = "changeColor">Click!</button>
+        <button @click="changeBold">Click!</button>
+        <br>
+        <div :style="{ fontSize: size, color: yellow }">Hello</div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                isRed : false,
+                isBold : true ,
+                size : '30px',
+                yellow : 'yellow'
+            },
+            methods: {
+                changeColor(){
+                    this.isRed = !this.isRed;
+                },
+                changeBold() {
+                    this.isBold = !this.isBold;
+                },
+            },
+        })
+    </script>
+</body>
+</html>
